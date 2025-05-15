@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/churchlogo.png" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chango Friends Church</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="header">
+    <nav class="nav container">
+      <div class="nav__data">
+        <a href="#" class="nav__logo">
+          <img src="assets/images/churchlogo.png" alt="Church Logo" class="nav__logo-img" />
+          Chango Friends
+        </a>
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line nav__burger"></i>
+          <i class="ri-close-line nav__close"></i>
+        </div>
+      </div>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="#" class="nav__link">Home</a></li>
+          <li><a href="#" class="nav__link">About</a></li>          
+          <li class="dropdown__item">
+            <div class="nav__link">
+              Ministries <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+            </div>
+            <ul class="dropdown__menu">
+              <li><a href="#" class="dropdown__link">Children's Ministry</a></li>
+              <li><a href="#" class="dropdown__link">YFP ministry</a></li>
+              <li><a href="#" class="dropdown__link">USFW & QUAKERMEN ministry</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="nav__link">Events</a></li>
+          <li><a href="#" class="nav__link">Sermons</a></li>
+          <li><a href="#" class="nav__link">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Moving Background -->
+  <section class="hero">
+   <div class="bg-slider">
+       <div class="bg-slider-item"><img src="assets/images/bg2.png" alt=""></div>
+       <div class="bg-slider-item"><img src="assets/images/bg3.png" alt="" srcset=""></div>
+       <div class="bg-slider-item"><img src="assets/images/bg4.png" alt="" srcset=""></div>
+       <div class="bg-slider-item"><img src="assets/images/bg6.png" alt="" srcset=""></div>
+   </div>
+   
+   <div class="hero-content">
+       <h1 class="hero-title">Welcome to Chango Friends Church</h1>
+       <p class="hero-subtitle">Join us in worship, fellowship, and service as we pursue a deeper 
+         relationship with God and one another. There’s a place for you here.</p>
+       <div class="hero-buttons">
+           
+           <a href="#" class="view-all-btn">Watch Sermons</a>
+       </div>
+   </div>
+
+   <div class="scroll-down">
+       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+           <path d="M12 15a1 1 0 0 1-.707-.293l-4-4a1 1 0 1 1 1.414-1.414L12 12.586l3.293-3.293a1 1 0 1 1 1.414 1.414l-4 4A1 1 0 0 1 12 15z"/>
+       </svg>
+   </div>
+</section>
+<div class="line"></div>
+<!-- Chango Friends Church Ministries Section -->
+<section class="chango-ministries-section">
+  <div class="chango-container">
+    <div class="chango-section-header">
+      <h3 class="chango-subtitle">Our Ministries</h3>
+      <h2 class="chango-title">What We Do</h2>
+      <span class="chango-title-underline"></span>
+    </div>
+    
+    <div class="chango-ministries-grid">
+      <!-- USFW/Quakerman Ministry Card -->
+      <div class="chango-ministry-card">
+        <div class="chango-ministry-content">
+          <div class="chango-ministry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M248.4 84.3c-12.8-1-25.8-.5-38.9 1.6-30.7 5-56.4 18.9-77 41.6-22.3 24.6-35.2 53.4-38.7 86.3-3.1 32.9 3.8 63.8 20.7 92.8 3.3 5.7 5.9 11.7 8.8 17.6-5 3.5-10 7-14.9 10.5-1.6 1.1-2.4.9-3.6-.5-7.9-9.5-12.6-20.6-15.9-32.3-3.5-12.7-5.7-25.7-6.8-38.8-2.1-24.2-1.3-48.3 3-72.1 8.9-49.8 29.7-93.7 66.5-128.9 48.3-46.4 105.8-68.1 172.8-63.6 26.4 1.8 51.8 8.4 75.7 20.5 7.4 3.8 14.4 8.2 21.6 12.3.4.6.3 1.1-.3 1.5-20 13.7-30.5 33.8-32.9 57.8-3.3 34 20.3 67.8 53.7 74 10.6 2 21.2 1.5 31.7-1 .6-.1 1.2-.2 1.8-.2.9 0 1.5.5 1.4 1.5-12.3 93.2-59.7 160.8-147.5 199.6-13.6 6-27.6 10.5-42.3 13.1-8.2 1.4-8.2 1.4-8.2-7 0-10.9 0-21.7.1-32.6 0-14.4.1-28.9 0-43.3 0-2.5.5-3.7 3-4.5 16.4-5.2 29.2-15.4 38-30.4 11.8-20.1 14.8-41.5 6.5-63.7-8.2-21.9-23.9-37.2-46.4-44.3-4.9-1.5-10-2.5-15.4-3.8 0-13 .1-25.4 0-37.9-.1-8.4-3.3-11.5-11.5-11.2zm172.9 109.5c-.1-1.3.1-2.6.3-3.9.6-7 2.4-13.8 5.3-20.1 6.9-15.1 19.9-23 36.2-24.7 11.9-1.3 23.2.8 33.6 7 16.8 10 25.2 25.2 25.9 44.6.6 19.3-7.5 34.5-23.5 45.3-11.2 7.5-23.7 10.2-37 8.8-18.9-2.1-32.9-12.2-41-29.1-5.3-11.1-7-22.9-5.8-35 .2-1.2.6-2.3 1-4-13.4-1.7-24-8.1-31.9-18.7-6.7-9.1-9.4-19.6-9.6-30.8-.2-16.2 4.1-30.9 14.4-43.2 13.9-16.7 43.1-22.8 63.9-13.2 17.9 8.3 28.2 22.8 31.6 42.2.6 3.7.6 7.5.8 11.3v1.1c-11.4.4-13-1.1-15.8-12-3.1-11.9-10.8-19.7-22.2-23.8-12-4.3-23.7-3.3-34.8 2.7-16.1 8.7-23 23.2-21.6 41.1 1.4 17.2 13.8 31.6 30.7 35.5 3.1.7 6.2 1.2 9.3 1.7 2.1.1 2.9.9 2.7 3-.1 1.5 0 3 0 4.4l-.5 4.8zM81.7 291c1.5-1.1 2.9-2.3 4.4-3.4 16.4-11.8 32.9-23.6 49.3-35.5 1-.7 2.2-1.1 3.3-1.6.5 1.3.3 2.3-.1 3.4-4.8 12.6-9.6 25.3-14.5 37.9-1.3 3.4-1.4 6.6.8 9.6 3.5 4.9 8.3 5 13 1.4 4-3.1 7.8-6.4 11.8-9.5 16.7-13.5 33.5-27 50.2-40.4l2.8-2c.7 1.2.3 2-.1 2.8-7.2 16.1-14.5 32.1-21.6 48.2-1.3 2.9-2 5.8-.8 8.9 1.7 4.4 5.5 6.9 10.2 6.5 2.9-.2 5.4-1.5 7.6-3.1 11.5-8.1 23-16.3 34.5-24.4 18.4-13 36.7-26 55.1-39 1-.7 2.1-1.2 3.4-1.9.5 1.1.3 1.9 0 2.8-5.8 17.3-11.5 34.6-17.4 51.9-.9 2.7-1.3 5.4 0 8.1 2.4 5.1 6.7 7 12 5.1 2.6-.9 4.9-2.5 7-4.1 17-13 34-26 50.9-39 12.1-9.3 24.2-18.6 36.4-27.8.3-.2.7-.5 1.1-.6.6-.2 1.3-.3 1.9-.5.5 1 0 1.7-.3 2.4-7 15.9-14 31.8-21 47.7-1.6 3.7-1.9 7.5-.1 11.2 3.7 7.6 13.1 8.8 19.5 2.4 2.7-2.7 5.5-5.2 8.4-7.6 12.3-10.4 24.7-20.6 37-30.9 1.2-1 2.7-1.7 4.1-2.5v.5c-9.3 13.8-18.6 27.5-28 41.3-1.4 2.1-2.9 4.3-3.8 6.6-2.1 5.7-.6 10.3 4.2 13.4 5.9 3.8 11 1.8 15.5-3.9 5.8-7.3 11.7-14.7 17.6-22 1.9-2.4 3.9-4.8 5.9-7.1 1.8-2 4-3 6.8-2.7 3.9.4 6.9 2.1 8.4 5.9 1.5 3.6 1.3 7.1-.5 10.6-1.9 3.5-4.5 6.5-7.3 9.3-14.8 14.4-31.6 26.3-49.9 35.9-11.7 6.1-23.8 11.2-36.7 14.2-9.1 2.1-18.2 2.6-27.1-.6-7.2-2.6-12.3-7.5-16.3-13.7-8.7 7.4-17.6 14.5-27.5 20.2-8.1 4.7-16.6 8.2-25.9 9.3-6.7.8-13.3.4-19.6-2-11.5-4.5-19.1-12.9-23.5-24.3-10.3 8.9-20.9 17.5-33 23.6-8.7 4.4-17.8 7.5-27.5 7.9-5.5.2-11-.3-16.2-2.3-12.2-4.9-20-13.5-23.9-25.9-10.7 10.1-22.4 18.4-36.1 23.9-8.7 3.5-17.7 5.9-27.2 5.8-5-.1-9.9-.6-14.7-2.3-13.2-4.7-21.9-14-26.4-27.1-1.7 1.1-3.3 2.2-4.9 3.3-11.6 7.9-23.3 15.8-34.9 23.8-2 1.4-4.1 2.7-6.4 3.6-8.3 3.2-15.6-.1-19.1-8.2-1.3-3-1.4-6.1-.4-9.3 1.5-4.9 4.6-8.8 7.6-12.7 9.9-12.6 19.7-25.2 29.6-37.7.7-.9 1.6-1.7 2.7-2.8-1.6 1-2.8 1.7-4 2.5-15.7 10.9-31.4 21.9-47.1 32.9-4.8 3.4-9.7 6.8-15.1 9.2-5.2 2.4-10.5 3.3-16 .7-5.7-2.7-9.3-7.2-9.7-13.6-.2-3.4.7-6.5 2.2-9.4 8.1-16.4 16.2-32.8 24.3-49.3.1-.3.2-.6.2-1.4-1.3.8-2.3 1.4-3.2 2-17.9 12.4-35.9 24.8-53.7 37.3-11.7 8.2-23.1 16.6-35.5 23.8zm177.9-100.7c12.1 2.9 23.7 12 28.7 28.5 4.5 14.8 2.5 28.9-5 42.3-5.7 10.3-14 17.5-24.8 22.2-.8.4-1.8.9-2.1 2-.3 9.5-.6 19-.9 28.5v42c0 1.1.2 2.2.3 3.3-44.7 7.2-86.6-1.8-123.7-29.7 14.7 1.7 28.6-.3 41.5-7.4 13.2-7.3 22.5-18.1 28.4-31.9 4.6-10.9 6.2-22.4 4.7-34.1-2.6-19.6-12.1-35.2-29.9-44.9-2.2-1.2-4.6-2.2-6.9-3.3-1.2-.5-1.5-1.4-1.2-2.7 3.6-14.1 7.2-28.3 10.7-42.4.1-.6-.1-1.5.6-1.8.4-.2 1.2.1 1.7.4 25.3 9.3 47.8 23.6 67.1 43.2 3.7 3.8 7.2 7.7 10.8 11.5zm-13.4 5.4c-.1-.7-.2-1.3-.3-1.9 0-7.9 0-15.9-.1-23.8 0-2.3.9-3.2 3-3.8 9-2.4 16.9-7 23.3-13.6 5.3-5.4 9.1-11.7 10.7-19.1 2.9-13.5-.9-24.4-11.5-32.6-12-9.3-25.8-11.2-40.3-7.3-15 4.1-24.5 14.2-28 29.2-2.8 11.9-1.8 23.5 4.7 34.1 5.9 9.6 14.4 16.4 24.8 20.9 3.2 1.4 6.5 2.5 9.8 3.8 3.2 1.2 3.9 2.1 3.9 5.6v8.5zm223.8 165.4h.5c0 3.5 0 7 .1 10.5 0 29.1.1 58.2.2 87.3 0 3.9 0 7.8-.5 11.7-.9 6.7-4.2 11.9-9.9 15.3-7.4 4.4-15.4 6.9-23.8 8.5-24.7 4.6-49.1 3.3-72.9-4.5-28.8-9.4-53.2-25.6-73.4-48.5-18.5-20.9-31.3-44.8-38.2-71.8-.8-3.2-1.5-6.5-2.2-9.7-.3-1.2.1-1.9 1.2-2.3 21.4-8.4 42.9-16.7 64.3-25.1.9-.4 1.8-.6 2.9-1 1.4 5.4 2.7 10.7 4.1 15.9 6.1 22.9 17.1 42.9 33.9 59.5 13.7 13.5 29.9 23.2 48.3 28.5 11.9 3.5 24.2 5.2 36.7 4.5 10.1-.6 19.9-2.7 29.2-6.8 0-24 0-48 0-72.2-.4 0-.8-.8-1.5-.8z"/>
+            </svg>
+          </div>
+          <h3 class="chango-ministry-title">USFW|Quakerman</h3>
+          <p class="chango-ministry-description">
+            Empowering men and women to serve Christ through fellowship, biblical study, and community engagement.
+            The groups provide spiritual growth and support for adults.
+          </p>
+          <a href="#" class="chango-ministry-link">Learn More</a>
+          
+        </div>
+      </div>
+      
+      <!-- Young Friends Program (YFP) Card - Featured/Middle -->
+      <div class="chango-ministry-card chango-ministry-featured">
+        <div class="chango-ministry-content">
+          <div class="chango-ministry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0z"/>
+            </svg>
+          </div>
+          <h3 class="chango-ministry-title">Young Friends Ministry</h3>
+          <p class="chango-ministry-description">
+            Nurturing the faith of teenagers and young adults through Bible study, worship, community service, and fun activities. YFP provides a safe space for youth to explore their faith journey.
+          </p>
+          <a href="#" class="chango-ministry-link">Learn More</a>
+          
+        </div>
+      </div>
+      
+      <!-- Children's Ministry Card -->
+      <div class="chango-ministry-card">
+        <div class="chango-ministry-content">
+          <div class="chango-ministry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path d="M544 80c0-13.3-10.7-24-24-24s-24 10.7-24 24v48H328V80c0-13.3-10.7-24-24-24s-24 10.7-24 24v48H80V80c0-13.3-10.7-24-24-24S32 66.7 32 80v96 32V384c0 35.3 28.7 64 64 64H352c35.3 0 64-28.7 64-64v-5.3c0-32.4 26.3-58.7 58.7-58.7H496c26.5 0 48-21.5 48-48V208 112 80zM253.3 339.7c6.2 6.2 6.2 16.4 0 22.6l-64 64c-6.2 6.2-16.4 6.2-22.6 0l-64-64c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0L160 374.4V256c0-8.8 7.2-16 16-16s16 7.2 16 16V374.4l34.7-34.7c6.2-6.2 16.4-6.2 22.6 0zM96 160H480V112H96v48z"/>
+            </svg>
+          </div>
+          <h3 class="chango-ministry-title">Children's Ministry</h3>
+          <p class="chango-ministry-description">
+            Guiding our youngest members through age-appropriate Bible lessons, crafts, music, and games. We create a loving environment where children can learn about God's love and grow in faith.
+          </p>
+          <a href="#" class="chango-ministry-link">Learn More</a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="line"></div>
+  <!-- About Us Section -->
+  <section class="church-container">
+    <div class="church-content">
+      <h2 class="section-title">About Us</h2>
+        <h1>Welcome to Our Church Family</h1>
+        <p>Chango Friends Church Welcome Everyon, regardless of where you are on your spiritual journey. 
+          Our mission is to help people know God, discover purpose, and make a difference.</p>
+        
+        <div class="service-times">
+            <h2 class="service-times-title">Sunday Services</h2>
+            <p class="service-time">7:00-8:00AM - Bible Study</p>
+            <p class="service-time">8:10-11:00AM - Normal Service</p>
+        </div>
+        
+    </div>
+    
+    <div class="church-image">
+        <img src="assets/images/bg2.png" alt="Church community">
+        <div class="join-us-overlay">
+            <h3>Join us this Sunday!</h3>        
+        </div>
+    </div>
+</section>
+
+<div class="line"></div>
+
+<!-- Events Section with Modern Scrolling -->
+<section class="events-section">
+  <h1 class="section-title" id="title">Events</h1>
+  <h2 class="section-title">Upcoming Events</h2>
+
+  <div class="events-scroll-buttons">
+    <button id="scroll-left" aria-label="Scroll events left">&#9664;</button>
+    <button id="scroll-right" aria-label="Scroll events right">&#9654;</button>
+  </div>
+  
+  <div class="events-container">
+    <!-- Event Card 1 -->
+    <div class="event-card">
+      <img src="assets/images/bg4.png" alt="Easter Sunday Service" class="event-image">
+      <div class="event-details">
+        <div class="event-date">
+          <svg class="calendar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>2025-04-20</span>
+          <span>10:00 AM - 12:00 PM</span>
+        </div>
+        <h3 class="event-title">Easter Sunday Service</h3>
+        <p class="event-description">Join us for a special Easter celebration as we rejoice in the resurrection of Christ.</p>
+      </div>
+    </div>
+
+    <!-- Event Card 2 -->
+    <div class="event-card">
+      <img src="assets/images/bg3.png" alt="Youth Summer Camp" class="event-image">
+      <div class="event-details">
+        <div class="event-date">
+          <svg class="calendar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>2025-06-15</span>
+          <span>All Day</span>
+        </div>
+        <h3 class="event-title">Youth Summer Camp</h3>
+        <p class="event-description">A week-long adventure through outdoor activities, worship, and Bible study.</p>
+      </div>
+    </div>
+    
+    <!-- Event Card 3 -->
+    <div class="event-card">
+      <img src="assets/images/bg4.png" alt="Women's Conference" class="event-image">
+      <div class="event-details">
+        <div class="event-date">
+          <svg class="calendar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>2025-05-10</span>
+          <span>9:00 AM - 4:00 PM</span>
+        </div>
+        <h3 class="event-title">Women's Conference</h3>
+        <p class="event-description">A day of inspiration, connection, and spiritual growth for women of all ages.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Visual indicator for scroll progress -->
+  <div class="scroll-indicator">
+    <span class="scroll-dot active"></span>
+    <span class="scroll-dot"></span>
+    <span class="scroll-dot"></span>
+  </div>
+  
+  <a href="#" class="view-all-btn">
+    View All Events
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </a>
+</section>
+
+<div class="line"></div>
+
+<!-- Sermons Section-->
+
+<section class="dfnt-sermon-section">
+  <div class="dfnt-container">
+    <h1 class="section-title" id="title">Sermon</h1>
+    <h2 class="section-title">Latest Sermon</h2>
+    <div class="dfnt-sermon-content">
+      <div class="dfnt-sermon-details">
+        <h3 class="dfnt-sermon-title">Finding Peace in Troubled Times</h3>
+        <p class="dfnt-sermon-speaker">Pastor John Smith • 2025-04-06</p>
+        <p class="dfnt-sermon-description">
+          A powerful message about finding God's peace even in the midst of life's challenges.
+        </p>
+        <a href="#" class="dfnt-watch-now-btn">Watch Now</a>
+      </div>
+      <div class="dfnt-sermon-video">
+        <!-- YouTube Video Placeholder -->
+        <div class="dfnt-youtube-embed">
+          <iframe 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=1&autoplay=0&modestbranding=1 "
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        
+          <i class="fas fa-play"></i>
+        </button>
+        <div class="dfnt-video-info">
+          <p>Watch on YouTube</p>
+        </div>
+      </div>
+    </div>
+    <div class="dfnt-view-all-sermons">
+      <a href="#" class="view-all-btn">View All Sermons →</a>
+    </div>
+  </div>
+</section>
+
+<div class="line"></div>
+
+<!-- Contact Us-->
+ 
+<section class="contact-section">
+  <div class="container">
+    <h1 class="section-title" id="title">Contact Us</h1>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-cards">
+      <div class="contact-card location-card">
+        <div class="card-icon"><i class='bx bx-map'></i></div>
+        <h3 class="card-title">Our Location</h3>
+        <p class="card-details">
+          684 West College St., Sun City, United States America.
+        </p>
+      </div>
+      <div class="contact-card phone-card">
+        <div class="card-icon"><i class='bx bx-headphone'></i></div>
+        <h3 class="card-title">Phone Number</h3>
+        <p class="card-details">
+          (+55) 654 - 545 - 5418<br>
+          (+55) 654 - 545 - 1235
+        </p>
+      </div>
+      <div class="contact-card email-card">
+        <div class="card-icon"><i class='bx bx-envelope'></i></div>
+        <h3 class="card-title">Email Address</h3>
+        <p class="card-details">
+          info@example.com<br>
+          info@zegen.com
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+ <!-- Chango Friends Church Footer -->
+<footer class="chango-footer">
+  <div class="chango-footer-container">
+    <!-- Church Info Column -->
+    <div class="chango-footer-column">
+      <div class="chango-footer-logo">
+        <i class="fas fa-church"></i>
+        <h2>Chango Friends Church</h2>
+      </div>
+      <p class="chango-footer-mission">
+        Welcoming all to share God's light, build community, and walk in truth together.
+      </p>
+      <div class="chango-social-links">
+        <a href="#" class="chango-social-icon" aria-label="Facebook">
+          <i class="ri-facebook-circle-fill"></i>
+        </a>
+        <a href="#" class="chango-social-icon" aria-label="Instagram">
+          <i class="ri-instagram-fill"></i>
+        </a>
+        <a href="#" class="chango-social-icon" aria-label="YouTube">
+          <i class="ri-youtube-fill"></i>
+        </a>
+        <a href="#" class="chango-social-icon" aria-label="Twitter">
+          <i class="ri-twitter-fill"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links Column -->
+    <div class="chango-footer-column">
+      <h3>Quick Links</h3>
+      <ul class="chango-footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Sermons</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Ministries Column -->
+    <div class="chango-footer-column">
+      <h3>Ministries</h3>
+      <ul class="chango-footer-links">
+        <li><a href="#">All Ministries</a></li>
+        <li><a href="#">Children's Ministry</a></li>
+        <li><a href="#">Youth Program</a></li>
+        <li><a href="#">Small Groups</a></li>
+        <li><a href="#">Community Outreach</a></li>
+      </ul>
+    </div>
+
+    <!-- Service Times & Contact Column -->
+    <div class="chango-footer-column">
+      <h3>Service Times</h3>
+      <div class="chango-service-times">
+        <p>Sunday: 10:00 AM & 4:00 PM</p>
+        <p>Wednesday: 7:00 PM (Bible Study)</p>
+      </div>
+
+      <h3>Address</h3>
+      <div class="chango-address">
+        <p>456 Faith Road</p>
+        <p>Chango, KE 30100</p>
+        <p><a href="tel:+254712345678" class="chango-phone">(+254) 712-345-678</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="chango-copyright">
+    &copy; 2025 Chango Friends Church. All rights reserved.
+  </div>
+</footer>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      ScrollReveal().reveal('.hero', { delay: 200, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
+      ScrollReveal().reveal('.hero-title', { delay: 400, distance: '20px', origin: 'left', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
+      ScrollReveal().reveal('.hero-subtitle', { delay: 600, distance: '20px', origin: 'right', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
+      ScrollReveal().reveal('.hero-buttons', { delay: 800, distance: '20px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
+      ScrollReveal().reveal('.chango-ministries-section', { delay: 1000, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('.church-container', { delay: 1200, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('.events-section', { delay: 1400, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('.dfnt-sermon-section', { delay: 1600, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('.contact-section', { delay: 1800, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('.chango-footer', { delay: 2000, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+
+      // Auto horizontal scroll for events container
+      const eventsContainer = document.querySelector('.events-container');
+      if (eventsContainer) {
+        console.log('Events container found for auto scroll');
+        let scrollStep = 1; // pixels per frame
+
+        function autoScroll() {
+          if (eventsContainer.scrollLeft >= eventsContainer.scrollWidth - eventsContainer.clientWidth) {
+            eventsContainer.scrollLeft = 0;
+          } else {
+            eventsContainer.scrollLeft += scrollStep;
+          }
+          requestAnimationFrame(autoScroll);
+        }
+        autoScroll();
+      }
+    });
+
+    // Scroll buttons functionality
+    const scrollLeftBtn = document.getElementById('scroll-left');
+    const scrollRightBtn = document.getElementById('scroll-right');
+    const eventsContainer = document.querySelector('.events-container');
+    const scrollAmount = 200; // pixels to scroll per click
+
+    if (scrollLeftBtn && scrollRightBtn && eventsContainer) {
+      scrollLeftBtn.addEventListener('click', () => {
+        eventsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+      scrollRightBtn.addEventListener('click', () => {
+        eventsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>
