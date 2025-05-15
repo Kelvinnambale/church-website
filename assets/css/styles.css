@@ -1119,13 +1119,11 @@ h2.section-title {
 h2.section-title:after {
   background-color: var(--blue-accent);
 }
-/* Upcoming Events Section */
 /*================ Events Section ===============*/
 .events-section {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   padding: 20px 0;
-  position: relative;
 }
 
 .section-title {
@@ -1135,7 +1133,6 @@ h2.section-title:after {
   color: #000;
 }
 
-/* Improved scrollable container */
 .events-container {
   display: flex;
   gap: 20px;
@@ -1145,14 +1142,6 @@ h2.section-title:after {
   scroll-behavior: smooth;
   padding-bottom: 10px;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory; /* Modern scroll snapping */
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.events-container::-webkit-scrollbar {
-  display: none;
 }
 
 .event-card {
@@ -1165,8 +1154,6 @@ h2.section-title:after {
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   height: fit-content;
   transform-style: preserve-3d; /* Enable 3D transform */
-  scroll-snap-align: start; /* Align with scroll container */
-  flex: 0 0 auto; /* Prevent shrinking */
 }
 
 .event-card:hover {
@@ -1234,7 +1221,7 @@ h2.section-title:after {
   align-items: center;
   justify-content: center;
   margin: 40px auto 0;
-  padding: 10px 20px;
+  padding: 10px 20px;  
   border-radius: 35px;
   background-color: var(--accent-color);
   color: var(--white-color);
@@ -1243,6 +1230,7 @@ h2.section-title:after {
   gap: 5px;
   width: fit-content;
   transition: background-color 0.3s ease;
+  
 }
 
 .view-all-btn:hover {
@@ -1250,36 +1238,16 @@ h2.section-title:after {
   color: var(--white-color);
 }
 
-/* Styled scroll buttons */
-.events-scroll-buttons {
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  display: flex;
-  justify-content: space-between;
-  z-index: 10;
-  pointer-events: none; /* So it doesn't interfere with scrolling */
-}
-
-#scroll-left, #scroll-right {
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  pointer-events: auto; /* Make buttons clickable */
-  opacity: 0.8;
-}
-
-#scroll-left {
-  margin-left: -20px;
+@media (max-width: 768px) {
+  .events-container {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .event-card {
+      max-width: 400px;
+      width: 100%;
+  }
 }
 /*=============== Sermon ===============*/
 /* Sermon Section */
