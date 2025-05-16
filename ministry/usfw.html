@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/churchlogo.png" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chango Friends Church</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+  <link rel="stylesheet" href="assets/css/about.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="header">
+    <nav class="nav container">
+      <div class="nav__data">
+        <a href="#" class="nav__logo">
+          <img src="assets/images/churchlogo.png" alt="Church Logo" class="nav__logo-img" />
+          Chango Friends
+        </a>
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line nav__burger"></i>
+          <i class="ri-close-line nav__close"></i>
+        </div>
+      </div>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li><a href="about.html" class="nav__link">About</a></li>          
+            <li class="dropdown__item">
+              <div class="nav__link">
+                Ministries <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </div>
+              <ul class="dropdown__menu">
+                <li><a href="ministry/children.html" class="dropdown__link">Children's Ministry</a></li>
+                <li><a href="ministry/yfp.html" class="dropdown__link">YFP ministry</a></li>
+                <li><a href="ministry/usfw.html" class="dropdown__link">USFW & QUAKERMEN ministry</a></li>
+              </ul>
+            </li>
+            <li><a href="events.html" class="nav__link">Events</a></li>
+            <li><a href="sermons.html" class="nav__link">Sermons</a></li>
+            <li><a href="contact.html" class="nav__link">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+ <!-- USFW Banner css in about.css-->
+ <div class="about-banner">
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6);"></div>
+  <div style="position: relative; z-index: 1;">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">United Society Of Friends Women (USFW)</h1>
+    <div style="display: flex; justify-content: center; gap: 0.5rem;">
+      <a href="index.html" style="color: var(--accent-color); text-decoration: none;">Home</a>
+      <span style="color: white;">-</span>
+      <span style="color: white;">Sermons</span>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+ <!-- Chango Friends Church Footer -->
+<footer class="chango-footer">
+  <div class="chango-footer-container">
+    <!-- Church Info Column -->
+    <div class="chango-footer-column">
+      <div class="chango-footer-logo">
+        <i class="fas fa-church"></i>
+        <h2>Chango Friends Church</h2>
+      </div>
+      <p class="chango-footer-mission">
+        Welcoming all to share God's light, build community, and walk in truth together.
+      </p>
+      <div class="chango-social-links">
+        <a href="#" class="chango-social-icon" aria-label="Facebook">
+          <i class="ri-facebook-circle-fill"></i>
+        </a>
+        <a href="#" class="chango-social-icon" aria-label="Instagram">
+          <i class="ri-instagram-fill"></i>
+        </a>
+        <a href="#" class="chango-social-icon" aria-label="YouTube">
+          <i class="ri-youtube-fill"></i>
+        </a>
+        <a href="#" class="chango-social-icon" aria-label="Twitter">
+          <i class="ri-twitter-fill"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links Column -->
+    <div class="chango-footer-column">
+      <h3>Quick Links</h3>
+      <ul class="chango-footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Sermons</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Ministries Column -->
+    <div class="chango-footer-column">
+      <h3>Ministries</h3>
+      <ul class="chango-footer-links">
+        <li><a href="#">All Ministries</a></li>
+        <li><a href="#">Children's Ministry</a></li>
+        <li><a href="#">Youth Program</a></li>
+        <li><a href="#">Small Groups</a></li>
+        <li><a href="#">Community Outreach</a></li>
+      </ul>
+    </div>
+
+    <!-- Service Times & Contact Column -->
+    <div class="chango-footer-column">
+      <h3>Service Times</h3>
+      <div class="chango-service-times">
+        <p>Sunday: 10:00 AM & 4:00 PM</p>
+        <p>Wednesday: 7:00 PM (Bible Study)</p>
+      </div>
+
+      <h3>Address</h3>
+      <div class="chango-address">
+        <p>456 Faith Road</p>
+        <p>Chango, KE 30100</p>
+        <p><a href="tel:+254712345678" class="chango-phone">(+254) 712-345-678</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="chango-copyright">
+    &copy; 2025 Chango Friends Church. All rights reserved.
+  </div>
+</footer>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      ScrollReveal().reveal('.hero', { delay: 200, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
+      ScrollReveal().reveal('.hero-title', { delay: 400, distance: '20px', origin: 'left', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
+      ScrollReveal().reveal('.hero-subtitle', { delay: 600, distance: '20px', origin: 'right', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
+      ScrollReveal().reveal('.hero-buttons', { delay: 800, distance: '20px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
+      ScrollReveal().reveal('.chango-ministries-section', { delay: 1000, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('.church-container', { delay: 1200, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('.events-section', { delay: 1400, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('.dfnt-sermon-section', { delay: 1600, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('.contact-section', { delay: 1800, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('.chango-footer', { delay: 2000, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+
+      // Auto horizontal scroll for events container
+      const eventsContainer = document.querySelector('.events-container');
+      if (eventsContainer) {
+        console.log('Events container found for auto scroll');
+        let scrollStep = 1; // pixels per frame
+
+        function autoScroll() {
+          if (eventsContainer.scrollLeft >= eventsContainer.scrollWidth - eventsContainer.clientWidth) {
+            eventsContainer.scrollLeft = 0;
+          } else {
+            eventsContainer.scrollLeft += scrollStep;
+          }
+          requestAnimationFrame(autoScroll);
+        }
+        autoScroll();
+      }
+    });
+
+    // Scroll buttons functionality
+    const scrollLeftBtn = document.getElementById('scroll-left');
+    const scrollRightBtn = document.getElementById('scroll-right');
+    const eventsContainer = document.querySelector('.events-container');
+    const scrollAmount = 200; // pixels to scroll per click
+
+    if (scrollLeftBtn && scrollRightBtn && eventsContainer) {
+      scrollLeftBtn.addEventListener('click', () => {
+        eventsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+      scrollRightBtn.addEventListener('click', () => {
+        eventsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>

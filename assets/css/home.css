@@ -293,6 +293,16 @@
     }
   }
   
+  /* Prevent overlapping between ministries and about section on mobile */
+  @media screen and (max-width: 576px) {
+    .chango-ministries-section {
+      margin-bottom: 6rem; /* Add bottom margin to create space */
+    }
+    .about-section {
+      padding-top: 6rem; /* Add top padding to create space */
+    }
+  }
+  
   .line{
     background: var(--black-color);
     width: auto;

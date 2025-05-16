@@ -211,7 +211,7 @@ a {
 .dropdown__sublink {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
   color: var(--white-color);
-  background-color: var(--black-color-light);
+  background-color: var(--black-color);
   display: flex;
   align-items: center;
   column-gap: .5rem;
