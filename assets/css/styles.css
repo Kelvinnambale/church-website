@@ -493,6 +493,28 @@ a {
   animation: scaleUpFade 1s ease forwards;
 }
 
+/* New animation for view all button */
+@keyframes pulseScale {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 87, 51, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 10px rgba(255, 87, 51, 0.4);
+  }
+}
+
+.view-all-btn {
+  animation: pulseScale 2s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.view-all-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 15px 15px rgba(255, 87, 51, 0.6);
+}
+
 
 .scroll-down {
   position: absolute;
