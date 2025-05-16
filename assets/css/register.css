@@ -1,5 +1,4 @@
-/* Global Variables */
-    :root {
+:root {
       --black-color: hsl(216, 73%, 19%);
       --black-color-light: hsl(216, 60%, 30%);
       --black-color-lighten: hsl(216, 40%, 50%);
@@ -33,10 +32,7 @@
       box-shadow: var(--shadow);
       overflow: hidden;
     }
-    .logo{
-        width: 70;
-        height: 70;
-    }
+
     .logo-section {
       background-color: var(--black-color);
       padding: 1.5rem;
@@ -45,7 +41,7 @@
 
     .logo-container {
       width: 120px;
-      height: 80px;
+      height: 120px;
       background-color: var(--white-color);
       border-radius: 50%;
       margin: 0 auto;

@@ -8,6 +8,7 @@
   <title>Chango Friends Church</title>
   <link rel="stylesheet" href="assets/css/styles.css"/>
   <link rel="stylesheet" href="assets/css/about.css"/>
+    <link rel="stylesheet" href="assets/css/events.css"/>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -61,6 +62,180 @@
     </div>
   </div>
 </div>
+
+<!-- Events Section -->
+<section class="events-section" id="events">
+    <div class="container">
+      
+      <div class="event-filters">
+        <button class="filter-btn active" data-filter="all">All Events</button>
+        <button class="filter-btn" data-filter="worship">Worship</button>
+        <button class="filter-btn" data-filter="community">Community</button>
+        <button class="filter-btn" data-filter="youth">Youth</button>
+        <button class="filter-btn" data-filter="mission">Mission</button>
+        <button class="filter-btn" data-filter="bible-study">Bible Study</button>
+      </div>
+      <div class="events-grid">
+        <!-- Event Card 1 -->
+        <div class="event-card" data-category="worship" data-id="1">
+          <div class="event-image" style="background-image: url('/api/placeholder/300/200')"></div>
+          <div class="event-content">
+            <div class="event-date">May 19, 2025 • 10:00 AM</div>
+            <h3 class="event-title">Sunday Worship Service</h3>
+            <p class="event-excerpt">Join us for our weekly worship service with praise, prayer, and an inspiring message.</p>
+            <div class="event-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Main Sanctuary</span>
+              <span><i class="fas fa-user"></i> Pastor John</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 2 -->
+        <div class="event-card" data-category="bible-study" data-id="2">
+          <div class="event-image" style="background-image: url('/api/placeholder/300/200?2')"></div>
+          <div class="event-content">
+            <div class="event-date">May 21, 2025 • 7:00 PM</div>
+            <h3 class="event-title">Wednesday Bible Study</h3>
+            <p class="event-excerpt">Dive deep into God's word with our weekly Bible study focusing on the Book of Romans.</p>
+            <div class="event-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Fellowship Hall</span>
+              <span><i class="fas fa-user"></i> Elder Sarah</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 3 -->
+        <div class="event-card" data-category="youth" data-id="3">
+          <div class="event-image" style="background-image: url('/api/placeholder/300/200?3')"></div>
+          <div class="event-content">
+            <div class="event-date">May 23, 2025 • 6:30 PM</div>
+            <h3 class="event-title">Youth Game Night</h3>
+            <p class="event-excerpt">Fun night of games, snacks, and fellowship for teens and young adults.</p>
+            <div class="event-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Youth Center</span>
+              <span><i class="fas fa-user"></i> Youth Pastor Mike</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 4 -->
+        <div class="event-card" data-category="community" data-id="4">
+          <div class="event-image" style="background-image: url('/api/placeholder/300/200?4')"></div>
+          <div class="event-content">
+            <div class="event-date">May 25, 2025 • 12:30 PM</div>
+            <h3 class="event-title">Community Potluck Lunch</h3>
+            <p class="event-excerpt">Bring your favorite dish and join us for fellowship after the Sunday service.</p>
+            <div class="event-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Church Grounds</span>
+              <span><i class="fas fa-user"></i> Hospitality Team</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 5 -->
+        <div class="event-card" data-category="mission" data-id="5">
+          <div class="event-image" style="background-image: url('/api/placeholder/300/200?5')"></div>
+          <div class="event-content">
+            <div class="event-date">May 30, 2025 • 9:00 AM</div>
+            <h3 class="event-title">Community Outreach Day</h3>
+            <p class="event-excerpt">Serving our local community through various outreach projects and activities.</p>
+            <div class="event-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Community Center</span>
+              <span><i class="fas fa-user"></i> Mission Team</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 6 -->
+        <div class="event-card" data-category="worship" data-id="6">
+          <div class="event-image" style="background-image: url('/api/placeholder/300/200?6')"></div>
+          <div class="event-content">
+            <div class="event-date">June 02, 2025 • 7:00 PM</div>
+            <h3 class="event-title">Prayer & Worship Night</h3>
+            <p class="event-excerpt">An evening dedicated to worship, prayer, and seeking God's presence together.</p>
+            <div class="event-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Main Sanctuary</span>
+              <span><i class="fas fa-user"></i> Worship Team</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Detail Modal -->
+  <div id="eventModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal"><i class="fas fa-times"></i></button>
+      <div class="event-detail-header" id="modalHeader">
+        <div class="event-detail-title">
+          <h2 id="modalTitle">Event Title</h2>
+          <div class="event-detail-meta">
+            <span><i class="far fa-calendar-alt"></i> <span id="modalDate">Date</span></span>
+            <span><i class="far fa-clock"></i> <span id="modalTime">Time</span></span>
+            <span><i class="fas fa-map-marker-alt"></i> <span id="modalLocation">Location</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="event-detail-content">
+        <div class="event-detail-description" id="modalDescription">
+          Event description will be displayed here.
+        </div>
+        <div class="event-detail-info">
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <div class="info-content">
+              <h4>Location Details</h4>
+              <p id="modalLocationDetails">Location details will be displayed here.</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="info-content">
+              <h4>Organized By</h4>
+              <p id="modalOrganizer">Organizer will be displayed here.</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="info-content">
+              <h4>Contact Information</h4>
+              <p id="modalContact">Contact information will be displayed here.</p>
+            </div>
+          </div>
+        </div>
+        <div class="event-registration">
+          <a href="#" class="btn" id="registerBtn">Register for This Event</a>
+        </div>
+        <div class="related-events">
+          <h3>Related Events</h3>
+          <div class="related-events-grid" id="relatedEvents">
+            <!-- Related events will be populated here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Stay Updated with Our Events</h2>
+        <p>Subscribe to our newsletter to receive updates about upcoming events, announcements, and spiritual resources.</p>
+        <form class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
 <!-- Footer -->
  <!-- Chango Friends Church Footer -->
