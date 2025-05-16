@@ -2,8 +2,8 @@
 // Database connection parameters
 $host = "localhost";
 $dbname = "changochurch_db";
-$username = "your_username"; // Change this to your database username
-$password = "your_password"; // Change this to your database password
+$username = "your_db_username"; // Replace with actual database username
+$password = "your_db_password"; // Replace with actual database password
 
 // Initialize response array
 $response = array(
