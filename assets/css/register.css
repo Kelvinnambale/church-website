@@ -10,20 +10,9 @@
       --transition: all 0.3s ease;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    
 
-    body {
-      background-color: var(--body-color);
-      color: var(--black-color);
-      line-height: 1.6;
-    }
-
-    .container {
+    .container-event{
       width: 90%;
       max-width: 800px;
       margin: 2rem auto;
@@ -292,4 +281,8 @@
       .church-name {
         font-size: 1.5rem;
       }
+    }
+
+    .container-event {
+      padding-top: 100px; /* Adjust this value based on the navbar height */
     }
