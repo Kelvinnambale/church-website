@@ -776,14 +776,13 @@ a {
   display: flex;
   gap: 20px;
   justify-content: flex-start;
-  flex-wrap: nowrap; /* Prevent wrapping to enable horizontal scroll */
-  overflow-x: auto; /* Enable horizontal scrolling */
-  scroll-behavior: smooth; /* Smooth scrolling */
-  perspective: 1500px; /* Added perspective for 3D effect */
-  padding-bottom: 10px; /* Space for scrollbar */
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  flex-wrap: nowrap; 
+  overflow-x: auto; 
+  scroll-behavior: smooth; 
+  perspective: 1500px; 
+  padding-bottom: 10px; 
+  -webkit-overflow-scrolling: touch; 
 }
-
 /* Optional: Hide scrollbar for Webkit browsers */
 .events-container::-webkit-scrollbar {
   height: 8px;
@@ -852,7 +851,7 @@ a {
   transform-style: preserve-3d;
 }
 
-/* Remove conflicting hover translateY effect */
+
 @media (max-width: 900px) {
   .contact-card:hover {
     transform: none;
@@ -871,7 +870,7 @@ a {
   display: flex;
   flex-direction: column;
   position: relative;
-  transform-style: preserve-3d; /* Enable 3D transform */
+  transform-style: preserve-3d; 
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
@@ -887,7 +886,7 @@ a {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  direction: ltr; /* Reset text direction inside the card */
+  direction: ltr; 
 }
 
 .chango-ministry-icon {
@@ -1511,12 +1510,6 @@ h2.section-title:after {
   font-size: 16px;
   line-height: 1.5;
   opacity: 0.9;
-}
-
-/* Removed conflicting hover translateY effect to enable 3D transform */
-.contact-card:hover {
-  /* transform: translateY(-5px); */
-  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); */
 }
 
 /* Responsive Design */
