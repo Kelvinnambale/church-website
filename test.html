@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Church Ministry Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      max-width: 700px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-group input[type="checkbox"] {
+      width: auto;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .buttons button {
+      padding: 10px 20px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .buttons button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form id="ministryForm">
+      <h2>Church Ministry Registration</h2>
+
+      <!-- Section 1: Personal Information -->
+      <div class="section active" id="section1">
+        <h3>1. Personal Information</h3>
+        <div class="form-group">
+          <label>Full Name:</label>
+          <input type="text" name="name" required />
+        </div>
+        <div class="form-group">
+          <label>Phone Number:</label>
+          <input type="text" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label>Email Address:</label>
+          <input type="email" name="email" />
+        </div>
+        <div class="form-group">
+          <label>Date of Birth:</label>
+          <input type="date" name="dob" required />
+        </div>
+        <div class="form-group">
+          <label>Gender:</label>
+          <select name="gender" required>
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Section 2: Church Involvement -->
+      <div class="section" id="section2">
+        <h3>2. Church Involvement</h3>
+        <div class="form-group">
+          <label>Are you a registered member of this church?</label>
+          <select name="membership" required>
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>How long have you attended?</label>
+          <select name="attendance" required>
+            <option value="">Select</option>
+            <option value="< 6 months">Less than 6 months</option>
+            <option value="6-12 months">6–12 months</option>
+            <option value="1-3 years">1–3 years</option>
+            <option value=">3 years">Over 3 years</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Section 3: Ministry Interest -->
+      <div class="section" id="section3">
+        <h3>3. Ministry Interest</h3>
+        <div class="form-group">
+          <label>Select ministries you’re interested in:</label><br />
+          <input type="checkbox" name="ministries" value="YFP" /> YFP<br />
+          <input type="checkbox" name="ministries" value="Children Ministry" /> Children Ministry<br />
+          <input type="checkbox" name="ministries" value="USFW" /> USFW<br />
+          <input type="checkbox" name="ministries" value="Quakermen" /> Quakermen<br />
+          <input type="checkbox" name="ministries" value="Other" /> Other: <input type="text" name="otherMinistry" />
+        </div>
+      </div>
+
+      <!-- Section 4: Skills & Preferences -->
+      <div class="section" id="section4">
+        <h3>4. Skills & Preferences</h3>
+        <div class="form-group">
+          <label>Availability:</label>
+          <input type="checkbox" name="availability" value="Weekdays Morning" /> Weekdays Morning<br />
+          <input type="checkbox" name="availability" value="Weekdays Evening" /> Weekdays Evening<br />
+          <input type="checkbox" name="availability" value="Saturdays" /> Saturdays<br />
+          <input type="checkbox" name="availability" value="Sundays" /> Sundays<br />
+        </div>
+        <div class="form-group">
+          <label>Skills or Interests:</label>
+          <input type="checkbox" name="skills" value="Teaching" /> Teaching<br />
+          <input type="checkbox" name="skills" value="Music" /> Singing/Music<br />
+          <input type="checkbox" name="skills" value="Media" /> Media/Technology<br />
+          <input type="checkbox" name="skills" value="Counseling" /> Counseling<br />
+          <input type="checkbox" name="skills" value="Hospitality" /> Hospitality<br />
+        </div>
+        <div class="form-group">
+          <label>Why would you like to join this ministry?</label>
+          <textarea name="motivation" rows="4"></textarea>
+        </div>
+      </div>
+
+      <!-- Section 5: Submit -->
+      <div class="section" id="section5">
+        <h3>5. Confirmation</h3>
+        <div class="form-group">
+          <input type="checkbox" name="consent" required /> I consent to being contacted for ministry involvement.
+        </div>
+        <div class="form-group">
+          <button type="submit">Submit Registration</button>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="button" onclick="prevSection()">Previous</button>
+        <button type="button" onclick="nextSection()">Next</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    let current = 0;
+    const sections = document.querySelectorAll(".section");
+
+    function showSection(index) {
+      sections.forEach((section, i) => {
+        section.classList.remove("active");
+        if (i === index) section.classList.add("active");
+      });
+    }
+
+    function nextSection() {
+      if (current < sections.length - 1) {
+        current++;
+        showSection(current);
+      }
+    }
+
+    function prevSection() {
+      if (current > 0) {
+        current--;
+        showSection(current);
+      }
+    }
+
+    document.getElementById("ministryForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Thank you for registering! Your form has been submitted.");
+    });
+  </script>
+</body>
+</html>
