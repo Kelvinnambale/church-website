@@ -10,9 +10,9 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
 
 // Database connection parameters
 $servername = "localhost";
-$username = "your_db_username";
-$password = "your_db_password";
-$dbname = "church_db";
+$username = "root";
+$password = "";
+$dbname = "changochurch_db";
 
 // Initialize variables
 $messages = [];
