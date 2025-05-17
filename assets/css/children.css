@@ -10,65 +10,6 @@
     --transition: all 0.3s ease;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: var(--body-color);
-    color: var(--black-color);
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-header {
-    background-color: var(--black-color);
-    color: var(--white-color);
-    padding: 20px 0;
-    box-shadow: var(--shadow);
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.logo span {
-    color: var(--accent-color);
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: var(--white-color);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-nav ul li a:hover {
-    color: var(--accent-color);
-}
 
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600') center/cover no-repeat;
@@ -113,6 +54,16 @@ nav ul li a:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow);
 }
+.about-banner{
+    background-image: url('../images/bg4.png');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    padding: 4rem 0 4rem 0; 
+    text-align: center; 
+    color: white; 
+    position: relative;
+  }
 
 .about {
     padding: 80px 0;
