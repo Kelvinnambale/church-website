@@ -80,16 +80,15 @@
     padding-bottom: 15px;
   }
 
-  .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--accent-color);
-  }
+.section-title::after {
+  content: none !important;
+  display: none !important;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  margin: 0;
+  border-radius: 0;
+}
 
   .events-section {
     padding: 80px 0;

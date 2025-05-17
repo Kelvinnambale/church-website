@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $membership = $_POST['membership'];
         $attendance = $_POST['attendance'];
         $address = $_POST['address'];
+        $guardian = isset($_POST['guardian']) ? trim($_POST['guardian']) : '';
         
         // Handle checkboxes (availability)
         $availability = isset($_POST['availability']) ? implode(", ", $_POST['availability']) : '';
@@ -43,6 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Get consent
         $consent = isset($_POST['consent']) ? 1 : 0;
+        
+        // Server-side validation for guardian if age < 5
+        if ($age < 5 && empty($guardian)) {
+            $response['message'] = 'Guardian name is required for children under 5 years old.';
+            echo json_encode($response);
+            exit;
+        }
         
         // Prepare SQL statement
         $sql = "INSERT INTO ministry_registrations (

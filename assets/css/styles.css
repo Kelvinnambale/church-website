@@ -715,12 +715,10 @@ a {
 }
 
 .chango-title-underline {
-  display: block;
-  width: 80px;
-  height: 4px;
-  background-color: var(--accent-color);
-  margin: 0 auto 3rem;
+  display: none !important;
 }
+
+
 
 .chango-ministries-grid {
   display: flex;
@@ -1024,15 +1022,7 @@ a {
   padding-bottom: 0.5rem;
 }
 
-.section-title:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  width: 60px;
-  background-color: var(--accent-color);
-}
+
 
 .church-content p {
   color: var(--black-color);
@@ -1066,7 +1056,7 @@ a {
 }
 
 .service-time:before {
-  content: '•';
+  content: none !important;
   color: var(--accent-color);
   margin-right: 8px;
   font-size: 1.2rem;
@@ -1142,9 +1132,8 @@ h2.section-title {
   color: var(--blue-accent);
 }
 
-h2.section-title:after {
-  background-color: var(--blue-accent);
-}
+
+
 /*================ Events Section ===============*/
 .events-section {
   max-width: 1200px;

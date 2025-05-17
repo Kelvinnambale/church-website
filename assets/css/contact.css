@@ -207,6 +207,7 @@ footer {
 @media (max-width: 992px) {
     .contact--container {
         grid-template-columns: 1fr;
+        margin-bottom: 3rem; /* Added spacious bottom margin for responsiveness */
     }
     
     .banner h1 {

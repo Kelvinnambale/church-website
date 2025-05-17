@@ -101,6 +101,11 @@
             <input type="number" id="age" name="age" required readonly>
             <span class="error-message" id="age-error">Age will be calculated automatically</span>
           </div>
+          <div class="form-group" id="guardian-group" style="display:none;">
+            <label for="guardian">Guardian Name:</label>
+            <input type="text" id="guardian" name="guardian" >
+            <span class="error-message" id="guardian-error">Please enter guardian's name if age is below 5</span>
+          </div>
           <div class="form-group">
             <label for="gender">Gender:</label>
             <select id="gender" name="gender" required>
@@ -273,24 +278,33 @@
         
         ageInput.value = age;
         
-        // Set ministry based on age
-        let ministry = "";
-        if (age >= 0 && age <= 17) {
-          ministry = "Children Ministry";
-        } else if (age >= 18 && age <= 35) {
-          ministry = "YFP Ministry";
-        } else if (age > 35) {
-          let gender = document.getElementById("gender").value;
-          if (gender === "Male") {
-            ministry = "Quakermen";
-          } else {
-            ministry = "USFW";
+          // Set ministry based on age
+          let ministry = "";
+          if (age >= 0 && age <= 17) {
+            ministry = "Children Ministry";
+          } else if (age >= 18 && age <= 35) {
+            ministry = "YFP Ministry";
+          } else if (age > 35) {
+            let gender = document.getElementById("gender").value;
+            if (gender === "Male") {
+              ministry = "Quakermen";
+            } else {
+              ministry = "USFW";
+            }
           }
-        }
-        
-        ministryInput.value = ministry;
-        ministryDisplay.textContent = ministry;
-      });
+          
+          // Show guardian field if age < 5
+          const guardianGroup = document.getElementById("guardian-group");
+          if (age < 5) {
+            guardianGroup.style.display = "block";
+          } else {
+            guardianGroup.style.display = "none";
+            document.getElementById("guardian").value = "";
+          }
+          
+          ministryInput.value = ministry;
+          ministryDisplay.textContent = ministry;
+        });
 
       // Gender change updates ministry for adults
       document.getElementById("gender").addEventListener('change', function() {
@@ -343,42 +357,49 @@
         updateProgressBar();
       }
 
-      // Validation functions
-      function validateSection(sectionIndex) {
-        switch(sectionIndex) {
-          case 0: // Personal Information
-            const name = document.getElementById("name").value;
-            const phone = document.getElementById("phone").value;
-            const email = document.getElementById("email").value;
-            const dob = document.getElementById("dob").value;
-            const gender = document.getElementById("gender").value;
-            
-            if (!name) {
-              showError("name-error");
-              return false;
-            }
-            
-            if (!phone || !/^[0-9+\-\s()]{8,20}$/.test(phone)) {
-              showError("phone-error");
-              return false;
-            }
-            
-            if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-              showError("email-error");
-              return false;
-            }
-            
-            if (!dob) {
-              showError("dob-error");
-              return false;
-            }
-            
-            if (!gender) {
-              showError("gender-error");
-              return false;
-            }
-            
-            return true;
+          // Validation functions
+          function validateSection(sectionIndex) {
+            switch(sectionIndex) {
+              case 0: // Personal Information
+                const name = document.getElementById("name").value;
+                const phone = document.getElementById("phone").value;
+                const email = document.getElementById("email").value;
+                const dob = document.getElementById("dob").value;
+                const gender = document.getElementById("gender").value;
+                const age = parseInt(document.getElementById("age").value);
+                const guardian = document.getElementById("guardian").value.trim();
+                
+                if (!name) {
+                  showError("name-error");
+                  return false;
+                }
+                
+                if (!phone || !/^[0-9+\-\s()]{8,20}$/.test(phone)) {
+                  showError("phone-error");
+                  return false;
+                }
+                
+                if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                  showError("email-error");
+                  return false;
+                }
+                
+                if (!dob) {
+                  showError("dob-error");
+                  return false;
+                }
+                
+                if (!gender) {
+                  showError("gender-error");
+                  return false;
+                }
+                
+                if (age < 5 && guardian === "") {
+                  showError("guardian-error");
+                  return false;
+                }
+                
+                return true;
             
           case 1: // Church Involvement
             const membership = document.getElementById("membership").value;
@@ -456,6 +477,15 @@
 
       nextBtn.addEventListener("click", function() {
         if (validateSection(currentSection)) {
+          // Additional guardian validation before moving from section 0
+          if (currentSection === 0) {
+            const age = parseInt(document.getElementById("age").value);
+            const guardian = document.getElementById("guardian").value.trim();
+            if (age < 5 && guardian === "") {
+              showError("guardian-error");
+              return; // Prevent moving to next section
+            }
+          }
           if (currentSection < sections.length - 1) {
             currentSection++;
             showSection(currentSection);
