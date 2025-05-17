@@ -46,30 +46,26 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   // Get the contact form element
   const contactForm = document.getElementById('contact--Form');
+  // Get the newsletter form element
+  const newsletterForm = document.getElementById('newsletterForm');
   
-  // Check if the form exists on the page
+  // Handle contact form submission
   if (contactForm) {
-      // Use existing div for displaying form messages
       const messageDiv = document.getElementById('formMessage');
-      
-      // Handle form submission
       contactForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          
-          // Show loading indicator
           messageDiv.innerHTML = '<p class="sending-message">Sending your message...</p>';
           messageDiv.style.display = 'block';
-          
-          // Collect form data
           const formData = new FormData(contactForm);
-          
-          // Send form data using fetch API
-          fetch('./forms/contact_formprocess.php', {
+          let formActionUrl = contactForm.getAttribute('action') || './forms/contact_formprocess.php';
+          fetch(formActionUrl, {
               method: 'POST',
+              headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+              },
               body: formData
           })
           .then(response => {
-              // Check if the response is a redirect (non-AJAX response)
               if (response.redirected) {
                   window.location.href = response.url;
                   return;
@@ -78,40 +74,63 @@ document.addEventListener('DOMContentLoaded', function() {
           })
           .then(data => {
               if (data && data.success) {
-                  // Show success message
                   messageDiv.innerHTML = '<p class="success-message">' + data.message + '</p>';
-                  // Reset the form
                   contactForm.reset();
-                  // Scroll to message
                   messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
               } else {
-                  // Show error message
                   messageDiv.innerHTML = '<p class="error-message">' + (data ? data.message : 'An error occurred. Please try again.') + '</p>';
-                  // Scroll to top of page
                   window.scrollTo({ top: 0, behavior: 'smooth' });
               }
           })
           .catch(error => {
               console.error('Error:', error);
               messageDiv.innerHTML = '<p class="error-message">An error occurred. Please try again later.</p>';
-              // Scroll to top of page
               window.scrollTo({ top: 0, behavior: 'smooth' });
           });
       });
+  }
+  
+  // Handle newsletter form submission
+  if (newsletterForm) {
+      const newsletterMessageDiv = document.createElement('div');
+      newsletterMessageDiv.id = 'newsletterMessage';
+      newsletterForm.parentNode.insertBefore(newsletterMessageDiv, newsletterForm.nextSibling);
       
-      // Check URL parameters for status messages on page load
-      const urlParams = new URLSearchParams(window.location.search);
-      const status = urlParams.get('status');
-      const msg = urlParams.get('msg');
-      
-      if (status === 'success') {
-          messageDiv.innerHTML = '<p class="success-message">Thank you for your message! We will get back to you soon.</p>';
-          messageDiv.style.display = 'block';
-          messageDiv.scrollIntoView({ behavior: 'smooth' });
-      } else if (status === 'error' && msg) {
-          messageDiv.innerHTML = '<p class="error-message">' + decodeURIComponent(msg) + '</p>';
-          messageDiv.style.display = 'block';
-          messageDiv.scrollIntoView({ behavior: 'smooth' });
-      }
+      newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          newsletterMessageDiv.innerHTML = '<p class="sending-message">Submitting your subscription...</p>';
+          newsletterMessageDiv.style.display = 'block';
+          const formData = new FormData(newsletterForm);
+          let formActionUrl = newsletterForm.getAttribute('action') || './forms/newsletter-processform.php';
+          fetch(formActionUrl, {
+              method: 'POST',
+              headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+              },
+              body: formData
+          })
+          .then(response => {
+              if (response.redirected) {
+                  window.location.href = response.url;
+                  return;
+              }
+              return response.json();
+          })
+          .then(data => {
+              if (data && data.success) {
+                  newsletterMessageDiv.innerHTML = '<p class="success-message">' + data.message + '</p>';
+                  newsletterForm.reset();
+                  newsletterMessageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              } else {
+                  newsletterMessageDiv.innerHTML = '<p class="error-message">' + (data ? data.message : 'An error occurred. Please try again.') + '</p>';
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+          })
+          .catch(error => {
+              console.error('Error:', error);
+              newsletterMessageDiv.innerHTML = '<p class="error-message">An error occurred. Please try again later.</p>';
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+      });
   }
 });

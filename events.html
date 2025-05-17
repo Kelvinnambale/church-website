@@ -229,8 +229,8 @@
       <div class="newsletter-content">
         <h2>Stay Updated with Our Events</h2>
         <p>Subscribe to our newsletter to receive updates about upcoming events, announcements, and spiritual resources.</p>
-        <form class="newsletter-form">
-          <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+        <form class="newsletter-form" id="newsletterForm" action="./forms/newsletter-processform.php" method="POST">
+          <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address" required>
           <button type="submit" class="newsletter-btn">Subscribe</button>
         </form>
       </div>
