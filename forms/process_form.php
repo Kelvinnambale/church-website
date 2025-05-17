@@ -45,6 +45,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get consent
         $consent = isset($_POST['consent']) ? 1 : 0;
         
+        // Server-side validation for age less than zero
+        if ($age < 0) {
+            $response['message'] = 'Invalid age: Age cannot be less than zero.';
+            echo json_encode($response);
+            exit;
+        }
+
         // Server-side validation for guardian if age < 5
         if ($age < 5 && empty($guardian)) {
             $response['message'] = 'Guardian name is required for children under 5 years old.';

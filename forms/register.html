@@ -100,6 +100,7 @@
             <label for="age">Age:</label>
             <input type="number" id="age" name="age" required readonly>
             <span class="error-message" id="age-error">Age will be calculated automatically</span>
+            <span class="error-message" id="age-error-invalid" style="display:none;">Age cannot be less than zero</span>
           </div>
           <div class="form-group" id="guardian-group" style="display:none;">
             <label for="guardian">Guardian Name:</label>
@@ -277,6 +278,15 @@
         }
         
         ageInput.value = age;
+
+        // Immediate validation for age less than zero
+        if (age < 0) {
+          const ageErrorInvalid = document.getElementById("age-error-invalid");
+          ageErrorInvalid.style.display = "block";
+          setTimeout(() => {
+            ageErrorInvalid.style.display = "none";
+          }, 3000);
+        }
         
           // Set ministry based on age
           let ministry = "";
@@ -394,6 +404,11 @@
                   return false;
                 }
                 
+                if (age < 0) {
+                  showError("age-error-invalid");
+                  return false;
+                }
+
                 if (age < 5 && guardian === "") {
                   showError("guardian-error");
                   return false;

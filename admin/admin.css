@@ -1,10 +1,21 @@
-```css
+
+:root {
+  --black-color: hsl(216, 73%, 19%);
+  --black-color-light: hsl(216, 60%, 30%);
+  --black-color-lighten: hsl(216, 40%, 50%);
+  --white-color: hsl(36, 100%, 99%);
+  --body-color: hsl(36, 100%, 98%);
+  --accent-color: #FF5733;
+  --blue-accent: var(--black-color);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
 :root {
   /* Modern color palette */
-  --primary-color: #3949ab;
-  --primary-light: #6f74dd;
-  --primary-dark: #00227b;
-  --secondary-color: #ff6e40;
+  --primary-color: var(--black-color);
+  --primary-light: var(--black-color-light);
+  --primary-dark: #{--black-color-lighten};
+  --secondary-color: var(--accent-color);
   --secondary-light: #ffa06d;
   --secondary-dark: #c53d13;
   --success-color: #43a047;
