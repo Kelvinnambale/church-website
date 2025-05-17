@@ -43,7 +43,6 @@
       max-width: 450px;
       margin: 2rem auto;
       background: var(--white-color);
-      
       overflow: hidden;
     }
     .form-group {
@@ -102,7 +101,10 @@
       text-decoration: none;
       margin-top: 20px;
     }
-
+    .btn:hover {
+      background-color: #e64a2e;
+      transform: translateY(-2px);
+    }
     .login-form label {
       text-align: center;
       display: block;
@@ -116,30 +118,64 @@
       color: var(--white-color);
       font-size: 0.9rem;
     }
+    .alert {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .alert-danger {
+      background-color: #ffe6e6;
+      color: #cc0000;
+      border: 1px solid #ffcccc;
+    }
+    .logo-section {
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+    .church--name {
+      color: var(--white-color);
+      margin-bottom: 0.5rem;
+    }
+    .church--tagline {
+      color: var(--accent-color);
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-  </header>
+  
+  
+  <?php
+    // Start the session at the beginning of the file
+    session_start();
+    
+    // If user is already logged in, redirect to dashboard
+    if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) {
+      header("Location: dashboard.php");
+      exit();
+    }
+  ?>
+  
   <div class="form-container">
     <div class="logo-section">
-      
-      <h1 class="church-name">Chango Friends Church</h1>
-      <p class="church-tagline">Growing in Faith, Serving with Love</p>
+      <h1 class="church--name">Chango Friends Church</h1>
+      <p class="church--tagline">Growing in Faith, Serving with Love</p>
     </div>
 
     <div class="form--container">
       <h2>Admin Login Panel</h2>
       <p class="form-description">Please enter your credentials to access the admin panel.</p>
+      
+      <?php
+        // Display error message if there is one
+        if (isset($_SESSION['login_error'])) {
+          echo '<div class="alert alert-danger">' . htmlspecialchars($_SESSION['login_error']) . '</div>';
+          unset($_SESSION['login_error']);
+        }
+      ?>
+      
       <form action="login.php" method="POST" class="login-form">
-        <?php
-          session_start();
-          if (isset($_SESSION['login_error'])) {
-            echo '<p style="color: red; text-align: center;">' . htmlspecialchars($_SESSION['login_error']) . '</p>';
-            unset($_SESSION['login_error']);
-          }
-        ?>
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" id="username" name="username" required />
@@ -150,49 +186,17 @@
           <i id="togglePassword" class="ri-eye-line" style="position: absolute; right: 10px; top: 38px; cursor: pointer; font-size: 1.2rem; color: var(--accent-color);"></i>
         </div>
         <button type="submit" class="btn">Login</button>
+      </form>
     </div>
   </div>
 
-<!-- Footer -->
- 
- 
   <!-- Copyright -->
   <div class="chango-copyright">
     &copy; 2025 Chango Friends Church. All rights reserved.
   </div>
-</footer>
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="assets/js/main.js"></script>
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      ScrollReveal().reveal('.hero', { delay: 200, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
-      ScrollReveal().reveal('.hero-title', { delay: 400, distance: '20px', origin: 'left', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
-      ScrollReveal().reveal('.hero-subtitle', { delay: 600, distance: '20px', origin: 'right', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
-      ScrollReveal().reveal('.hero-buttons', { delay: 800, distance: '20px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: false, viewFactor: 0 });
-      ScrollReveal().reveal('.chango-ministries-section', { delay: 1000, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
-      ScrollReveal().reveal('.church-container', { delay: 1200, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
-      ScrollReveal().reveal('.events-section', { delay: 1400, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
-      ScrollReveal().reveal('.dfnt-sermon-section', { delay: 1600, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
-      ScrollReveal().reveal('.contact-section', { delay: 1800, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
-      ScrollReveal().reveal('.chango-footer', { delay: 2000, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
-
-      // Auto horizontal scroll for events container
-      const eventsContainer = document.querySelector('.events-container');
-      if (eventsContainer) {
-        console.log('Events container found for auto scroll');
-        let scrollStep = 1; // pixels per frame
-
-        function autoScroll() {
-          if (eventsContainer.scrollLeft >= eventsContainer.scrollWidth - eventsContainer.clientWidth) {
-            eventsContainer.scrollLeft = 0;
-          } else {
-            eventsContainer.scrollLeft += scrollStep;
-          }
-          requestAnimationFrame(autoScroll);
-        }
-        autoScroll();
-      }
-
       // Show/hide password toggle
       const togglePassword = document.getElementById('togglePassword');
       const passwordInput = document.getElementById('password');

@@ -5,6 +5,12 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
 
+// Check if user is logged in, if not redirect to login page
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+
 // Database connection parameters
 $db_host = 'localhost';
 $db_user = 'root';
@@ -228,90 +234,7 @@ $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'dashboard';
       --transition: all 0.3s ease;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: var(--body-color);
-      color: var(--black-color);
-      line-height: 1.6;
-    }
-
-    .container {
-      display: flex;
-      min-height: 100vh;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      width: 250px;
-      background-color: var(--black-color);
-      color: var(--white-color);
-      padding: 20px 0;
-      transition: var(--transition);
-    }
-
-    .sidebar-header {
-      padding: 0 20px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
-    }
-
-    .sidebar-header h2 {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
-    }
-
-    .sidebar-nav {
-      padding: 20px 0;
-    }
-
-    .nav-item {
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .nav-item:hover, .nav-item.active {
-      background-color: var(--black-color-light);
-    }
-
-    .nav-item i {
-      margin-right: 10px;
-      font-size: 1.2rem;
-    }
-
-    .nav-item a {
-      color: var(--white-color);
-      text-decoration: none;
-      width: 100%;
-    }
-
-    /* Main Content */
-    .main-content {
-      flex: 1;
-      padding: 20px;
-      overflow-x: auto;
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-
-    .header h1 {
-      color: var(--black-color);
-      font-size: 2rem;
-    }
-
+    /* General styles */
     /* Dashboard */
     .dashboard {
       margin-bottom: 30px;
@@ -578,35 +501,503 @@ $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'dashboard';
       display: flex;
       align-items: center;
     }
+    .checkbox-group label {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--black-color);
+    }
+    :root {
+      --primary-color: #3a7bd5;
+      --primary-light: #6fa1ff;
+      --primary-dark: #00569e;
+      --accent-color: #f5a623;
+      --text-light: #ffffff;
+      --text-dark: #333333;
+      --bg-light: #f8f9fa;
+      --bg-dark: #243447;
+      --success: #28a745;
+      --warning: #f5a623;
+      --danger: #dc3545;
+      --gray-100: #f8f9fa;
+      --gray-200: #e9ecef;
+      --gray-300: #dee2e6;
+      --gray-400: #ced4da;
+      --gray-500: #adb5bd;
+      --gray-600: #6c757d;
+      --gray-700: #495057;
+      --gray-800: #343a40;
+      --gray-900: #212529;
+      --transition: all 0.3s ease;
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+      --shadow: 0 4px 6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+      --border-radius: 8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Modern Header & Sidebar */
+    .sidebar {
+      width: 280px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+      color: var(--text-light);
+      transition: var(--transition);
+      position: fixed;
+      height: 100%;
+      z-index: 1000;
+      box-shadow: var(--shadow-lg);
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      padding: 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .sidebar-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      z-index: 0;
+    }
+
+    .sidebar-header h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebar-header p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sidebar-user-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+    }
+
+    .sidebar-user-info .user-avatar {
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar-user-info .user-avatar img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .sidebar-user-info .user-name {
+      font-weight: 600;
+      display: block;
+    }
+
+    .sidebar-user-info .user-role {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8rem;
+    }
+
+    .sidebar-user-info .time {
+      text-align: right;
+      white-space: nowrap;
+      padding-left: 10px;
+    }
+
+    .nav-list {
+      padding: 1rem 0;
+    }
+
+    .nav-item {
+      padding: 0;
+      margin: 0.3rem 0.8rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-item a {
+      color: var(--text-light);
+      text-decoration: none;
+      padding: 0.8rem 1rem;
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+      font-weight: 500;
+      border-radius: var(--border-radius);
+    }
+
+    .nav-item:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-item.active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-item.active a {
+      color: var(--accent-color);
+    }
+
+    .nav-item i {
+      margin-right: 12px;
+      font-size: 1.1rem;
+      width: 24px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .nav-item:hover i {
+      transform: translateX(3px);
+    }
+
+    .nav-divider {
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.1);
+      margin: 1rem 1.5rem;
+    }
+
+    .sidebar-footer {
+      padding: 1rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Main content area */
+    .main-content {
+      flex: 1;
+      padding: 0 0 2rem 280px; /* Add left padding equal to sidebar width */
+      position: relative;
+      transition: var(--transition);
+    }
+
+    /* New modern header for main content */
+    .main-header {
+      background-color: var(--text-light);
+      box-shadow: var(--shadow);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 900;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+    }
+
+    .header-title i {
+      margin-right: 10px;
+      color: var(--accent-color);
+      font-size: 1.8rem;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .header-search {
+      position: relative;
+      min-width: 300px;
+    }
+
+    .header-search input {
+      width: 100%;
+      padding: 0.6rem 1rem 0.6rem 2.5rem;
+      border: 1px solid var(--gray-300);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .header-search i {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-500);
+    }
+
+    .header-search input:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(58, 123, 213, 0.15);
+    }
+
+    .header-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border-radius: 50px;
+      background-color: transparent;
+      border: 1px solid var(--gray-300);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .header-btn:hover {
+      background-color: var(--gray-100);
+    }
+
+    .header-btn.primary {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      border: none;
+    }
+
+    .header-btn.primary:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .header-user {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .header-user img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--gray-300);
+    }
+
+    .header-user-info {
+      display: none;
+    }
+
+    .header-notification {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .header-notification i {
+      font-size: 1.3rem;
+      color: var(--gray-700);
+    }
+
+    .notification-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: var(--danger);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: bold;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content-wrapper {
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Mobile responsive */
+    .mobile-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 992px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      
+      .main-content {
+        padding-left: 0;
+      }
+      
+      .mobile-toggle {
+        display: block;
+      }
+      
+      .header-search {
+        min-width: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-search {
+        display: none;
+      }
+      
+      .header-actions {
+        gap: 0.5rem;
+      }
+      
+      .header-btn span {
+        display: none;
+      }
+      
+      .header-btn {
+        padding: 0.5rem;
+      }
+      
+      .header-title {
+        font-size: 1.2rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="container">
+    <!-- Modern Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>Chango Friends</h2>
+        <p>Church System</p>
+      </div>
+              
+      <div class="nav-list">
+        <div class="nav-item active">
+          <a href="?tab=dashboard">
+            <i class="fas fa-chart-pie"></i>
+            Dashboard
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="?tab=registrations">
+            <i class="fas fa-users"></i>
+            Registrations
+          </a>
+        </div>
+        <div class="nav-divider"></div>
+        <div class="nav-item">
+          <a href="?export=csv">
+            <i class="fas fa-file-export"></i>
+            Export Data
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="#">
+            <i class="fas fa-cog"></i>
+            Settings
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="logout.php">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </a>
+        </div>
+        <div class="sidebar-user-info" style="padding: 1rem 1.5rem; background-color: rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9rem; line-height: 1.4;">
+        <div>Logged in:as
+        <strong><?= htmlspecialchars($_SESSION['admin_username'] ?? 'Admin') ?></strong></div>
+        <div id="current-time" style="white-space: nowrap;"></div>
+      </div>
+      </div>
+      
+      <div class="sidebar-footer">
+        ChurchAdmin v2.0 © 2025
+      </div>
+    </div>
 
-<div class="container">
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="sidebar-header">
-      <h2>Church Management</h2>
-      <p>Registration System</p>
-    </div>
-    <div class="sidebar-nav">
-      <div class="nav-item <?= $active_tab == 'dashboard' ? 'active' : '' ?>">
-        <a href="?tab=dashboard"><i class="fas fa-chart-pie"></i> Dashboard</a>
+    <!-- Main Content Area with Modern Header -->
+    <div class="main-content">
+      <!-- Modern Main Header -->
+      <div class="main-header">
+        <div class="header-left">
+          <div class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="header-title">
+            <i class="fas fa-church"></i>
+            Ministry Registration Dashboard
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="header-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search registrations...">
+          </div>
+          <div class="header-notification">
+            <i class="fas fa-bell"></i>
+            <span class="notification-count">3</span>
+          </div>
+          <button class="header-btn primary">
+            <i class="fas fa-plus"></i>
+            <span>New Registration</span>
+          </button>
+          <div class="header-user">
+            
+            <div class="header-user-info">
+              <span class="user-name">Admin</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="nav-item <?= $active_tab == 'registrations' ? 'active' : '' ?>">
-        <a href="?tab=registrations"><i class="fas fa-users"></i> Registrations</a>
-      </div>
-      <div class="nav-item">
-        <a href="?export=csv"><i class="fas fa-file-export"></i> Export Data</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Content -->
-  <div class="main-content">
-    <div class="header">
-      <h1>Church Registration Management</h1>
-    </div>
+             
+      <div class="content-wrapper">
+        <!-- Your existing content for dashboard etc. -->
+        <div style="background-color: var(--gray-100); border-radius: var(--border-radius); padding: 2rem; text-align: center;">
+          <h2 style="margin-bottom: 1rem; color: var(--primary-color);">Welcome to the Chango Friends Management System</h2>
+          <p style="color: var(--gray-600);">Manage your church efficiently and effectively.</p>   
 
     <!-- Dashboard Tab -->
     <?php if ($active_tab == 'dashboard'): ?>
@@ -1055,48 +1446,67 @@ $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'dashboard';
 </div>
 <?php endif; ?>
 
+<!-- Add a logout link/button -->
+<div style="position: fixed; top: 10px; right: 10px;">
+  <a href="logout.php" class="btn btn-secondary" style="padding: 8px 12px; font-size: 0.9rem; border-radius: 4px; text-decoration: none;">Logout</a>
+</div>
+
+
 <script>
-// Calculate age automatically when date of birth changes
-document.addEventListener('DOMContentLoaded', function() {
-  // For add form
-  const dobInputAdd = document.querySelector('#addModal input[name="dob"]');
-  const ageInputAdd = document.querySelector('#addModal input[name="age"]');
-  
-  if (dobInputAdd && ageInputAdd) {
-    dobInputAdd.addEventListener('change', function() {
-      const dob = new Date(this.value);
-      const today = new Date();
-      let age = today.getFullYear() - dob.getFullYear();
-      const monthDiff = today.getMonth() - dob.getMonth();
-      
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
-        age--;
-      }
-      
-      ageInputAdd.value = age;
-    });
-  }
-  
-  // For edit form
-  const dobInputEdit = document.querySelector('#editModal input[name="dob"]');
-  const ageInputEdit = document.querySelector('#editModal input[name="age"]');
-  
-  if (dobInputEdit && ageInputEdit) {
-    dobInputEdit.addEventListener('change', function() {
-      const dob = new Date(this.value);
-      const today = new Date();
-      let age = today.getFullYear() - dob.getFullYear();
-      const monthDiff = today.getMonth() - dob.getMonth();
-      
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
-        age--;
-      }
-      
-      ageInputEdit.value = age;
-    });
-  }
-});
-</script>
+ // Calculate age automatically when date of birth changes
+ document.addEventListener('DOMContentLoaded', function() {
+   // For add form
+   const dobInputAdd = document.querySelector('#addModal input[name="dob"]');
+   const ageInputAdd = document.querySelector('#addModal input[name="age"]');
+   
+   if (dobInputAdd && ageInputAdd) {
+     dobInputAdd.addEventListener('change', function() {
+       const dob = new Date(this.value);
+       const today = new Date();
+       let age = today.getFullYear() - dob.getFullYear();
+       const monthDiff = today.getMonth() - dob.getMonth();
+       
+       if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+         age--;
+       }
+       
+       ageInputAdd.value = age;
+     });
+   }
+   
+   // For edit form
+   const dobInputEdit = document.querySelector('#editModal input[name="dob"]');
+   const ageInputEdit = document.querySelector('#editModal input[name="age"]');
+   
+   if (dobInputEdit && ageInputEdit) {
+     dobInputEdit.addEventListener('change', function() {
+       const dob = new Date(this.value);
+       const today = new Date();
+       let age = today.getFullYear() - dob.getFullYear();
+       const monthDiff = today.getMonth() - dob.getMonth();
+       
+       if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+         age--;
+       }
+       
+       ageInputEdit.value = age;
+     });
+   }
+
+   // Add current time display in sidebar
+   function updateTime() {
+     const now = new Date();
+     const timeString = now.toLocaleTimeString();
+     const dateString = now.toLocaleDateString();
+     const currentTimeElem = document.getElementById('current-time');
+     if (currentTimeElem) {
+       currentTimeElem.textContent = dateString + ' ' + timeString;
+     }
+   }
+   setInterval(updateTime, 1000);
+   updateTime();
+ });
+ </script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {

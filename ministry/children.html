@@ -207,6 +207,10 @@
                             <input type="email" id="email" placeholder="Your Email">
                         </div>
                         <div class="form-group">
+                          <label for="phone">Phone</label>
+                          <input type="phone" id="phone" placeholder="Your Email">
+                      </div>
+                        <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" placeholder="Your Message"></textarea>
                         </div>
@@ -305,6 +309,12 @@
       ScrollReveal().reveal('.contact-section', { delay: 1800, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
       ScrollReveal().reveal('.chango-footer', { delay: 2000, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
 
+      ScrollReveal().reveal('#about', { delay: 1000, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('#programs', { delay: 1200, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('#register', { delay: 1400, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('.testimonials', { delay: 1600, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+      ScrollReveal().reveal('#contact', { delay: 1800, distance: '50px', origin: 'bottom', duration: 1200, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+
       // Auto horizontal scroll for events container
       const eventsContainer = document.querySelector('.events-container');
       if (eventsContainer) {
@@ -338,5 +348,6 @@
       });
     }
   </script>
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>
